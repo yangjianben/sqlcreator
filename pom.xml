@@ -1,10 +1,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>sqlcteator</groupId>
-	<artifactId>sqlcteator</artifactId>
+	<groupId>sqlcreator</groupId>
+	<artifactId>sqlcreator</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
-	<url>https://github.com/yangjianben/sqlcteator</url>
+	<url>https://github.com/yangjianben/sqlcreator</url>
 	<description>A dynamic SQL builder for Java language.</description>
 
 	<properties>
@@ -14,15 +14,15 @@
 	</properties>
 
 	<scm>
-		<connection>scm:git:https://github.com/yangjianben/sqlcteator.git</connection>
-		<developerConnection>scm:git:https://github.com/yangjianben/sqlcteator.git</developerConnection>
-		<url>https://github.com/yangjianben/sqlcteator.git</url>
+		<connection>scm:git:https://github.com/yangjianben/sqlcreator.git</connection>
+		<developerConnection>scm:git:https://github.com/yangjianben/sqlcreator.git</developerConnection>
+		<url>https://github.com/yangjianben/sqlcreator.git</url>
 		<tag>1.0</tag>
 	</scm>
 
 	<issueManagement>
 		<system>GitHub</system>
-		<url>https://github.com/yangjianben/sqlcteator/issues</url>
+		<url>https://github.com/yangjianben/sqlcreator/issues</url>
 	</issueManagement>
 
 	<licenses>
@@ -35,7 +35,7 @@
 
 	<developers>
 		<developer>
-			<id>sqlcteator</id>
+			<id>sqlcreator</id>
 			<name>yangjianben</name>
 			<email>yssb_2011@qq.com</email>
 		</developer>
