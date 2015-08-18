@@ -448,7 +448,7 @@ public class Query {
 			return null;
 		}
 		ScalarHandler<Long> handler = new ScalarHandler<Long>(1);
-		Long count = ConnectionUtils.getRunnerWithDataSource().query(sql.toString(), handler, parameters.toArray());
+		Long count = JdbcUtils.getRunnerWithDataSource().query(sql.toString(), handler, parameters.toArray());
 		debug(count);
 		return count;
 	}
@@ -457,7 +457,7 @@ public class Query {
 		if (isEmpty(sql)) {
 			return null;
 		}
-		T count = ConnectionUtils.getRunnerWithDataSource().query(sql.toString(), sh, parameters.toArray());
+		T count = JdbcUtils.getRunnerWithDataSource().query(sql.toString(), sh, parameters.toArray());
 		debug(count);
 		return count;
 	}
@@ -467,7 +467,7 @@ public class Query {
 			return null;
 		}
 		appendOrderBy();
-		Map<String, Object> map = ConnectionUtils.getRunnerWithDataSource().query(sql.toString(), new MapHandler(),
+		Map<String, Object> map = JdbcUtils.getRunnerWithDataSource().query(sql.toString(), new MapHandler(),
 				parameters.toArray());
 		debug(map);
 		return map;
@@ -478,7 +478,7 @@ public class Query {
 			return null;
 		}
 		appendOrderBy();
-		List<Map<String, Object>> map = ConnectionUtils.getRunnerWithDataSource().query(sql.toString(),
+		List<Map<String, Object>> map = JdbcUtils.getRunnerWithDataSource().query(sql.toString(),
 				new MapListHandler(), parameters.toArray());
 		debug(map);
 		return map;
@@ -495,7 +495,7 @@ public class Query {
 		}
 
 		BeanHandler<T> beanHandler = (BeanHandler<T>) getBeanHandler(clazz);
-		T list = ConnectionUtils.getRunnerWithDataSource().query(sql.toString(), beanHandler, parameters.toArray());
+		T list = JdbcUtils.getRunnerWithDataSource().query(sql.toString(), beanHandler, parameters.toArray());
 		debug(list);
 		return list;
 	}
@@ -513,7 +513,7 @@ public class Query {
 		appendOrderBy();
 
 		BeanListHandler<T> beanListHandler = (BeanListHandler<T>) getBeanListHandler(clazz);
-		List<T> list = ConnectionUtils.getRunnerWithDataSource().query(sql.toString(), beanListHandler,
+		List<T> list = JdbcUtils.getRunnerWithDataSource().query(sql.toString(), beanListHandler,
 				parameters.toArray());
 
 		debug(list);
@@ -525,7 +525,7 @@ public class Query {
 			return null;
 		}
 		BeanHandler<T> beanHandler = getBeanHandler(clazz);
-		T list = ConnectionUtils.getRunnerWithDataSource().query(sql.toString(), beanHandler, parameters.toArray());
+		T list = JdbcUtils.getRunnerWithDataSource().query(sql.toString(), beanHandler, parameters.toArray());
 		debug(list);
 		return list;
 	}
@@ -538,7 +538,7 @@ public class Query {
 		appendOrderBy();
 
 		BeanListHandler<T> beanListHandler = getBeanListHandler(clazz);
-		List<T> list = ConnectionUtils.getRunnerWithDataSource().query(sql.toString(), beanListHandler,
+		List<T> list = JdbcUtils.getRunnerWithDataSource().query(sql.toString(), beanListHandler,
 				parameters.toArray());
 
 		debug(list);
@@ -552,7 +552,7 @@ public class Query {
 
 		appendOrderBy();
 
-		List<T> list = ConnectionUtils.getRunnerWithDataSource().query(sql.toString(), columnListHandler,
+		List<T> list = JdbcUtils.getRunnerWithDataSource().query(sql.toString(), columnListHandler,
 				parameters.toArray());
 		debug(list);
 		return list;

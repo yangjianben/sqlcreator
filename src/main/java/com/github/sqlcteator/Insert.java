@@ -277,32 +277,32 @@ public class Insert {
 	}
 
 	public List<Long> save(Connection connection) throws SQLException {
-		List<Long> result = ConnectionUtils.getRunner().insert(connection, this.toString(), rsh, this.getValues());
+		List<Long> result = JdbcUtils.getRunner().insert(connection, this.toString(), rsh, this.getValues());
 		debug(result, null);
 		return result;
 	}
 
 	public <T> List<T> save(Connection connection, ColumnListHandler<T> columnlisthandler) throws SQLException {
-		List<T> result = ConnectionUtils.getRunner().insert(connection, this.toString(), columnlisthandler,
+		List<T> result = JdbcUtils.getRunner().insert(connection, this.toString(), columnlisthandler,
 				this.getValues());
 		debug(result, null);
 		return result;
 	}
 
 	public List<Long> insertBatch(Connection connection, String sql, Object[][] batchParams) throws SQLException {
-		List<Long> result = ConnectionUtils.getRunner().insertBatch(connection, sql, rsh, batchParams);
+		List<Long> result = JdbcUtils.getRunner().insertBatch(connection, sql, rsh, batchParams);
 		debug(result, sql);
 		return result;
 	}
 
 	public List<Long> save(Connection connection, String sql) throws SQLException {
-		List<Long> result = ConnectionUtils.getRunner().insert(connection, sql, rsh, this.getValues());
+		List<Long> result = JdbcUtils.getRunner().insert(connection, sql, rsh, this.getValues());
 		debug(result, sql);
 		return result;
 	}
 
 	public List<Long> save(Connection connection, String sql, Object[] values) throws SQLException {
-		List<Long> result = ConnectionUtils.getRunner().insert(connection, sql, rsh, values);
+		List<Long> result = JdbcUtils.getRunner().insert(connection, sql, rsh, values);
 		debug(result, sql);
 		return result;
 	}

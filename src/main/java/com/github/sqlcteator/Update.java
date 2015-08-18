@@ -375,7 +375,7 @@ public class Update {
 
 	public int doUpdate(Connection connection) throws SQLException {
 		System.out.println("SQL=" + this.toString());
-		int update = ConnectionUtils.getRunner().update(connection, this.toString(), parameters.toArray());
+		int update = JdbcUtils.getRunner().update(connection, this.toString(), parameters.toArray());
 		System.out.println("SQL Value=" + update);
 		return update;
 	}
