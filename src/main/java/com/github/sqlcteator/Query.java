@@ -252,9 +252,29 @@ public class Query {
 		if (isEmpty(value))
 			return this;
 		if (value.indexOf("%") < 0)
-			value = StringUtils.join("'%", value, "%'");
+			value = StringUtils.join("%", value, "%");
 
-		sql.append(" and ").append(columnName).append(" like ").append(value);
+		sql.append(" and ").append(columnName).append(" like ?");
+		setParameters(value);
+		return this;
+	}
+
+	/**
+	 * 模糊匹配
+	 * 
+	 * @param columnName
+	 *            属性名称
+	 * @param value
+	 *            属性值
+	 */
+	public Query notLike(String columnName, String value) {
+		if (isEmpty(value))
+			return this;
+		if (value.indexOf("%") < 0)
+			value = StringUtils.join("%", value, "%");
+
+		sql.append(" and ").append(columnName).append(" not like ?");
+		setParameters(value);
 		return this;
 	}
 

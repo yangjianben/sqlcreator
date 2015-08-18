@@ -203,10 +203,29 @@ public class Update {
 		if (isEmpty(value))
 			return this;
 		if (value.indexOf("%") < 0)
-			value = StringUtils.join("'%", value, "%'");
+			value = StringUtils.join("%", value, "%");
 
-		conditions
-				.add(new StringBuilder().append(" and ").append(columnName).append(" like ").append(value).toString());
+		conditions.add(new StringBuilder().append(" and ").append(columnName).append(" like ?").toString());
+		setParameters(value);
+		return this;
+	}
+
+	/**
+	 * 模糊匹配
+	 * 
+	 * @param columnName
+	 *            属性名称
+	 * @param value
+	 *            属性值
+	 */
+	public Update notLike(String columnName, String value) {
+		if (isEmpty(value))
+			return this;
+		if (value.indexOf("%") < 0)
+			value = StringUtils.join("%", value, "%");
+
+		conditions.add(new StringBuilder().append(" and ").append(columnName).append(" not like ?").toString());
+		setParameters(value);
 		return this;
 	}
 
