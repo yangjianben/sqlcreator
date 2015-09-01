@@ -158,8 +158,8 @@ public class Update {
 		if (isEmpty(value) || "null".equals(value))
 			return this;
 
-		sql.append(" and ").append(columnName).append(opt).append("( ").append(Joiner.on(",").join(params))
-				.append(" )");
+		conditions.add(new StringBuilder().append(" and ").append(columnName).append(opt).append("( ").append(Joiner.on(",").join(params))
+				.append(" )").toString());
 		return this;
 	}
 
